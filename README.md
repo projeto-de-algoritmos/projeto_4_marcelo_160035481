@@ -2,13 +2,12 @@
 Projeto de programação dinâmica
 
 ## Nome: Marcelo Araújo dos Santos, Matrícula: 16/0035481
-### Problema da mochila em que os itens não podem ser divididos
+### Problema da mochila em que os itens não podem ser divididos (programação dinâmica)
 
-Programa com interface do problema da mochila
-Para rodar, entre na pasta desse projeto no terminal, depois digite os comandos
-´´´
+Para rodar o programa, entre na pasta deste projeto pelo terminal, depois digite os comandos
+```
 cd mochila
 python3 main.py
-´´´
+```
 
-É necessário ter Python3 instalado e o módulo tkinter
+É necessário ter [Python3](https://www.python.org/downloads/release/python-370/) instalado e o módulo [tkinter](https://docs.python.org/3/library/tkinter.html)
