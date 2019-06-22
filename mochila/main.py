@@ -4,6 +4,7 @@ import tkinter as tk
 from classes import *
 from funcs import *
 from consts import *
+import random
 
 class MyFrame:
     def __init__(self, root, name, row, column,itens=[],show_del_button=False):
@@ -68,6 +69,21 @@ def save_exit(root, itens, knapsack):
     else:
         print("deu ruim")
 
+def find_max_id(itens):
+    max_id = 0
+    for i in itens:
+        if i.item_id > max_id:
+            max_id = i.item_id
+    return max_id
+
+def add_rand_item(itens_frame):
+    itens_frame.placed_itens.append(
+        Item( 1+find_max_id(itens_frame.placed_itens),
+                            "rand{}".format(random.randint(1,100)),
+                            random.randint(1,100),
+                            random.randint(1,30))
+    )
+    itens_frame.fill()
 
 def run():
     os.system("clear")
@@ -84,10 +100,12 @@ def run():
     result = Result()
     max_w_txt = tk.Label(bar_frame, text='Peso:')
     max_weight = tk.Entry(bar_frame)
+    rand_item = tk.Button(bar_frame, text="Add item aleatório",command=lambda itf=itens_frame:add_rand_item(itf))
     max_weight.delete(0,tk.END)
     max_weight.insert(0,'11')
     calcule = tk.Button(bar_frame, text="Calcular",command=lambda m=max_weight,i=itens, r=result, kf=knap_frame:calc_knapsack(m.get(), i, r,kf))
     exit_bttn = tk.Button(bar_frame, text="Salvar e sair",command=lambda prog=root:save_exit(root,itens_frame.placed_itens, result.solution))
+    rand_item.grid(row=0, column=4)
     exit_bttn.grid(row=0, column=3)
     calcule.grid(row=0, column=2)
     max_w_txt.grid(row=0, column=0)

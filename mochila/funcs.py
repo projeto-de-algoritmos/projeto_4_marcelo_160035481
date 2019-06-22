@@ -3,40 +3,22 @@ from classes import *
 
 def find_solution(matrix, n, w,val,wt,itens):
     solution = []
-    # for line in range(n):
-    #     print("p:{}".format(matrix[n-line][w]))
-    #     if(matrix[n-line][w] != matrix[n-line-1][w]):
-    #         solution.insert(0,line)
-    # return solution, matrix[line][w]
     res = matrix[n][w]
     #print(res) 
     
     for i in range(n, 0, -1): 
         if res <= 0: 
             break
-        # either the result comes from the 
-        # top (K[i-1][w]) or from (val[i-1] 
-        # + K[i-1] [w-wt[i-1]]) as in Knapsack 
-        # table. If it comes from the latter 
-        # one/ it means the item is included. 
         if res == matrix[i - 1][w]: 
             continue
         else: 
-  
-            # This item is included. 
             solution.insert(0,itens[i - 1]) 
               
-            # Since this weight is included 
-            # its value is deducted 
             res = res - val[i - 1] 
             w = w - wt[i - 1]
     return solution, matrix[n][w-1]
 
 def calc_knapsack(Wstr, itens, sol, knap_frame):
-    # val = [60, 100, 120]
-    # wt = [10, 20, 30] 
-    # W = 50
-    # n = len(val)
     try:
         W = int(Wstr)
     except ValueError:
