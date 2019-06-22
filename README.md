@@ -1,5 +1,4 @@
 # projeto_5_marcelo_160035481
-Projeto de programação dinâmica
 
 ## Nome: Marcelo Araújo dos Santos, Matrícula: 16/0035481
 ### Problema da mochila em que os itens não podem ser divididos (programação dinâmica)
